@@ -1,0 +1,26 @@
+So our value of 3.14159 would be represented as something like
+
+
+    0 10000010 11001001000011111100111
+    ^     ^               ^
+    |     |               |
+    |     |               +--- significand / mantissa= 0.7853975... (1*2^(0) + 1*2^(-1) + 1*2^(-4) + 1*2^(-7) + 1*2^(-12) + ....)
+    |     |
+    |     +------------------- exponent = 2 (130 - 128)
+    |
+    +------------------------- sign = 0 (positive)
+
+    value= -1(sign) * 2(exponent) * (significand)
+    value= -10 * 22 * 0.7853975...
+    value= 3.14159...
+
+From the left:
+    1 --> SIGN BIT
+    8 --> EXPONENT (-128 to 127)
+    23 --> SIGNIFICAND (0 to 2.0)
+
+    23 bytes of significand gives us precision upto 6 decimal places
+
+    3.14159 can be represented as 0.7853975 (SIGNIFICAND) * 2^2 (EXPONENT) * (-1)^0 (SIGN)
+
+    The above is for float --> 32 bits (4 bytes)

@@ -19,7 +19,11 @@ public:
     {
         if(this == &a) return *this;
         cout << "Assignment Operator - [ A ] \n";
-        m_a = a.m_a;
+        m_a = a.m_a; // This WORKS, even though we are accessing private variable of different object.
+                     // It works because the private & public access specifier is for other entities like other classes, derived classes,
+                     // main() or any other global function
+                     // For maintainers of a class it does not mean anything
+                     // Basically access specifiers / permissions are for OBJECT-level, not for CLASS-level
         return *this;
     }
 
